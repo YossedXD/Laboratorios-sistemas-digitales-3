@@ -1,0 +1,97 @@
+import streamlit as st
+
+# Configuración inicial de la página
+st.set_page_config(page_title="Dashboard Pepper", page_icon="🤖", layout="centered")
+
+# --- Título principal ---
+st.title("Dashboard Tecnológico con Pepper 🤖")
+
+# --- Barra lateral ---
+st.sidebar.title("Menú de navegación")
+opcion = st.sidebar.radio(
+    "Selecciona una sección:",
+    ["Inicio", "Novedades Tecnológicas", "Videos de Pepper", "Chatbot"]
+)
+
+# --- Sección Inicio ---
+if opcion == "Inicio":
+    st.header("Bienvenido al Dashboard de Pepper")
+    st.write("""
+    Este dashboard integra tres novedades tecnológicas, 
+    los videos de Pepper y un chatbot interactivo.  
+    Usa el menú de la izquierda para navegar entre las secciones.
+    """)
+
+    # Imagen de Pepper en la página de inicio
+    st.image("pepper.png", caption="Pepper Robot", use_column_width=True)
+
+# --- Sección Novedades ---
+elif opcion == "Novedades Tecnológicas":
+    st.header("📰 Novedades Tecnológicas")
+   st.subheader("1. Constelaciones de Satélites Miniaturizados")
+    st.write("""
+    Estos pequeños satélites, llamados CubeSats o smallsats, son mucho más económicos y fáciles de fabricar que los satélites tradicionales.  
+    Cuando se lanzan en grandes cantidades, forman constelaciones que orbitan alrededor de la Tierra.  
+    Gracias a ellas, podemos tener internet satelital en cualquier lugar del mundo, incluso en zonas rurales y remotas.  
+
+    Además, permiten un monitoreo climático en tiempo real, lo cual ayuda a predecir desastres naturales y a estudiar el cambio climático.  
+    Un ejemplo real es Starlink, de SpaceX, que ya tiene miles de satélites en órbita baja, conectando a millones de personas.  
+
+    👉 En conclusión, estas constelaciones están transformando la forma en que nos comunicamos y cómo observamos nuestro planeta.
+    """)
+
+    st.subheader("2. Gemelos Digitales de Ciudades")
+    st.write("""
+    Un gemelo digital es una réplica virtual de una ciudad real.  
+    Se construye combinando datos de sensores, cámaras, satélites y registros urbanos.  
+    Esto permite que los gobiernos y las empresas puedan simular lo que ocurre en tiempo real.  
+
+    Por ejemplo, un gemelo digital puede predecir embotellamientos de tráfico y sugerir rutas alternativas.  
+    También puede simular apagones eléctricos y proponer cómo redistribuir la energía de manera inteligente.  
+   Ciudades como Singapur y Shanghái ya utilizan esta tecnología para ser más eficientes, sostenibles y seguras.  
+
+    👉 En conclusión, los gemelos digitales son una herramienta clave para el futuro de las ciudades inteligentes.
+    """)
+
+    st.subheader("3. Qubits Topológicos")
+    st.write("""
+    En la computación cuántica, usamos qubits, que pueden ser cero, uno, o ambos al mismo tiempo gracias al principio de superposición.  
+
+    El problema es que los qubits normales son muy inestables y se ven afectados por el ruido del ambiente.  
+    Aquí es donde entran los qubits topológicos. Estos qubits son más resistentes y pueden mantener la información cuántica por más tiempo.  
+
+    Esto significa que podremos construir computadoras cuánticas mucho más potentes y confiables.  
+    Su impacto será enorme: desde mejorar la ciberseguridad, hasta simular moléculas para descubrir nuevos fármacos.  
+
+    Empresas como Microsoft y Google ya trabajan en esta tecnología, porque podría marcar el inicio de la era cuántica en la informática.  
+
+    👉 En conclusión, los qubits topológicos representan un paso fundamental hacia el futuro de la computación.
+    """)
+
+# --- Sección Videos ---
+elif opcion == "Videos de Pepper":
+    st.header("🎥 Videos de Pepper - Novedades Tecnológicas")
+   st.subheader("Constelaciones de Satélites Miniaturizados")
+    st.video("https://www.youtube.com/watch?v=e8z1JwCc1oo")
+
+    st.subheader("Gemelos Digitales de Ciudades")
+    st.video("https://www.youtube.com/watch?v=2wZ8MpOUdw0")
+
+    st.subheader("Qubits Topológicos")
+    st.video("https://www.youtube.com/watch?v=HfkoKxpxCZ0")
+
+# --- Sección Chatbot ---
+elif opcion == "Chatbot":
+    st.header("🤖 Chatbot Interactivo")
+    st.write("Aquí puedes interactuar con el chatbot que responde preguntas sobre las novedades tecnológicas.")
+
+    # Enlace al chatbot real
+    st.markdown("""
+    👉 Para usarlo directamente, abrelo aquí:  
+    [Ir al Chatbot](https://laboratorio-3-chatbot--bugs-bunny-mcd9cjfjuauly3wx5ryzsh.streamlit.app/)
+    """)
+
+    # Simulación de chatbot dentro del dashboard
+    pregunta = st.text_input("Escribe tu pregunta aquí:")
+    if st.button("Enviar"):
+        st.success(f"(Simulación) Respuesta del chatbot para: {pregunta}")
